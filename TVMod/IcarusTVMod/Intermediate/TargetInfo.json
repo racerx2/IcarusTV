@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "IcarusTVMod",
+			"Path": "C:\\IcarusTVMod\\IcarusTVMod\\Source\\IcarusTVMod.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "IcarusTVModEditor",
+			"Path": "C:\\IcarusTVMod\\IcarusTVMod\\Source\\IcarusTVModEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

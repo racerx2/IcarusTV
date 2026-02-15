@@ -1,0 +1,84 @@
+using System;
+using System.IO;
+using System.Linq;
+using UAssetAPI;
+using UAssetAPI.UnrealTypes;
+
+string assetPath = @"C:\TVModBuilder\PakContent\Icarus\Content\Mods\TV\Blueprints\BP_TV.uasset";
+
+var asset = new UAsset(assetPath, EngineVersion.VER_UE4_27);
+
+Console.WriteLine("=== Imports Before Fix ===");
+for (int i = 0; i < asset.Imports.Count; i++)
+{
+    var imp = asset.Imports[i];
+    Console.WriteLine($"Import[{i}] = {imp.ObjectName} (Class: {imp.ClassName}, Outer: {imp.OuterIndex})");
+}
+
+int deployableInteractIdx = -1;
+int powerToggleableClassIdx = -1;
+int deployableBaseClassIdx = -1;
+
+for (int i = 0; i < asset.Imports.Count; i++)
+{
+    string name = asset.Imports[i].ObjectName.ToString();
+    if (name == "Deployable_Interact") deployableInteractIdx = i;
+    if (name == "BP_Deployable_PowerToggleableBase_C") powerToggleableClassIdx = i;
+    if (name == "BP_DeployableBase_C") deployableBaseClassIdx = i;
+}
+
+Console.WriteLine($"\nDeployable_Interact idx: {deployableInteractIdx}");
+Console.WriteLine($"PowerToggleable_C idx: {powerToggleableClassIdx}");
+Console.WriteLine($"DeployableBase_C idx: {deployableBaseClassIdx}");
+
+if (deployableInteractIdx == -1)
+{
+    Console.WriteLine("No Deployable_Interact import found - nothing to fix.");
+    return;
+}
+
+// If BP_DeployableBase_C not in imports, add it
+if (deployableBaseClassIdx == -1)
+{
+    Console.WriteLine("\nAdding BP_DeployableBase imports...");
+    
+    var pkgImport = new Import(
+        "/Script/CoreUObject",
+        "Package",
+        new FPackageIndex(0),
+        "/Game/BP/Objects/World/Items/Deployables/BP_DeployableBase",
+        false, asset
+    );
+    asset.Imports.Add(pkgImport);
+    int pkgIdx = asset.Imports.Count;
+
+    var classImport = new Import(
+        "/Script/Engine",
+        "BlueprintGeneratedClass",
+        new FPackageIndex(-pkgIdx),
+        "BP_DeployableBase_C",
+        false, asset
+    );
+    asset.Imports.Add(classImport);
+    deployableBaseClassIdx = asset.Imports.Count - 1;
+    Console.WriteLine($"Added BP_DeployableBase_C at import index {deployableBaseClassIdx}");
+}
+
+// Fix Deployable_Interact outer to point to BP_DeployableBase_C
+var diImport = asset.Imports[deployableInteractIdx];
+int oldOuter = diImport.OuterIndex.Index;
+int newOuter = -(deployableBaseClassIdx + 1);
+Console.WriteLine($"\nFixing Deployable_Interact outer: {oldOuter} -> {newOuter}");
+diImport.OuterIndex = new FPackageIndex(newOuter);
+
+asset.Write(assetPath);
+Console.WriteLine("\n=== Fix Applied and Saved ===");
+
+// Verify
+var verify = new UAsset(assetPath, EngineVersion.VER_UE4_27);
+Console.WriteLine("\n=== Imports After Fix ===");
+for (int i = 0; i < verify.Imports.Count; i++)
+{
+    var imp = verify.Imports[i];
+    Console.WriteLine($"Import[{i}] = {imp.ObjectName} (Class: {imp.ClassName}, Outer: {imp.OuterIndex})");
+}

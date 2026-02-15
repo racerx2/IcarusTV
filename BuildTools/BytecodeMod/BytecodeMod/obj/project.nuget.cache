@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PDxHR1ruShA=",
+  "success": true,
+  "projectFilePath": "C:\\TVModBuilder\\BytecodeMod\\BytecodeMod\\BytecodeMod.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nunya\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

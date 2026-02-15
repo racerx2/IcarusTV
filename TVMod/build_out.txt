@@ -1,0 +1,16 @@
+Parsing headers for IcarusTVModEditor
+  Running UnrealHeaderTool "C:\IcarusTVMod\IcarusTVMod\IcarusTVMod.uproject" "C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\IcarusTVModEditor\Development\IcarusTVModEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\nunya\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+LogInit: Display: Loading text-based GConfig....
+Reflection code generated for IcarusTVModEditor in 12.1382684 seconds
+Building IcarusTVModEditor...
+Using Visual Studio 2019 14.29.30159 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Building 5 actions with 32 processes...
+  [1/5] IcarusTVMod.init.gen.cpp
+  [2/5] PowerToggleableStub.gen.cpp
+  [3/5] UE4Editor-IcarusTVMod.lib
+     Creating library C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\UE4Editor-IcarusTVMod.lib and object C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\UE4Editor-IcarusTVMod.exp
+  [4/5] UE4Editor-IcarusTVMod.dll
+     Creating library C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\UE4Editor-IcarusTVMod.suppressed.lib and object C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\UE4Editor-IcarusTVMod.suppressed.exp
+  [5/5] IcarusTVModEditor.target
+Total time in Parallel executor: 1.24 seconds
+Total execution time: 13.85 seconds

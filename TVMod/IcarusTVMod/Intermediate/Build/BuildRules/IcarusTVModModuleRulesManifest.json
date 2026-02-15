@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\IcarusTVMod\\IcarusTVMod\\Source\\IcarusTVMod\\IcarusTVMod.Build.cs",
+		"C:\\IcarusTVMod\\IcarusTVMod\\Source\\IcarusTVMod.Target.cs",
+		"C:\\IcarusTVMod\\IcarusTVMod\\Source\\IcarusTVModEditor.Target.cs"
+	],
+	"EngineVersion": "4.27.2"
+}

@@ -1,0 +1,14 @@
+# IPTV credentials (saved locally by the app)
+IcarusRelayServer/Icarus_config.json
+
+# FFmpeg binary (users download their own)
+IcarusRelayServer/ffmpeg/
+
+# Python cache
+__pycache__/
+*/__pycache__/
+
+# Large generated files (exceed GitHub 100MB limit)
+TVMod/IcarusTVMod/Intermediate/Build/Win64/IcarusTVModEditor/Development/Engine/SharedPCH.Engine.ShadowErrors.h.pch
+TVMod/IcarusTVMod/Intermediate/ProjectFiles/UE4.vcxproj
+BuildTools/UAssetAPI/UAssetAPI.Benchmark/TestAssets/PlayerBase01.uexp

@@ -1,0 +1,5 @@
+C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\Definitions.IcarusTVMod.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\IcarusTVMod\IcarusTVMod\Source\IcarusTVMod/Public/PowerToggleableStub.h
+C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Inc\IcarusTVMod\PowerToggleableStub.generated.h

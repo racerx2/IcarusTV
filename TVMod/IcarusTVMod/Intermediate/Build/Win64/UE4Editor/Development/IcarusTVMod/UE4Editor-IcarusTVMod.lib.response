@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-IcarusTVMod.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\IcarusTVModEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\IcarusTVMod.cpp.obj"
+"C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\IcarusTVMod.init.gen.cpp.obj"
+"C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\PowerToggleableStub.gen.cpp.obj"
+"C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\Default.rc2.res"
+/OUT:"C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\UE4Editor-IcarusTVMod.lib"

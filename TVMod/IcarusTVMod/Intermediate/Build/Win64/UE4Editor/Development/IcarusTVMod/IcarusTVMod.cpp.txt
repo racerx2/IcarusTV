@@ -1,0 +1,2 @@
+C:\IcarusTVMod\IcarusTVMod\Intermediate\Build\Win64\UE4Editor\Development\IcarusTVMod\Definitions.IcarusTVMod.h
+C:\IcarusTVMod\IcarusTVMod\Source\IcarusTVMod\Public\IcarusTVMod.h

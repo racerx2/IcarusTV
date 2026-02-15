@@ -1,0 +1,8 @@
+# IPTV credentials (saved locally by the app)
+Icarus_config.json
+
+# FFmpeg binary (users download their own)
+ffmpeg/
+
+# Python cache
+__pycache__/
