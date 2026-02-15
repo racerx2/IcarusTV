@@ -290,8 +290,9 @@ If you only want to play with the TV mod and not modify it:
 ### Building from Source
 
 1. Clone UAssetAPI and build it
-2. Open TVMod/IcarusTVMod.uproject in the Icarus Mod Editor
-3. C++ stubs compile automatically on editor launch
+2. Right-click TVMod/IcarusTVMod.uproject and select **Generate Visual Studio project files** (the .vcxproj is excluded from the repo due to size)
+3. Open TVMod/IcarusTVMod.uproject in the Icarus Mod Editor
+4. C++ stubs compile automatically on editor launch
 4. Make your changes to blueprints or content
 5. Compile, Save All, Cook Content for Windows
 6. Edit the paths in BuildTools/build_deploy.ps1 to match your system
@@ -509,8 +510,9 @@ On first run, a login dialog asks for your IPTV credentials (saved locally, giti
 ### 2. Mod Editor Setup
 
 1. Clone UAssetAPI and build it: `dotnet build -c Release`
-2. Open TVMod/IcarusTVMod.uproject in the Icarus Mod Editor
-3. The C++ stubs compile automatically on editor launch
+2. Right-click TVMod/IcarusTVMod.uproject and select "Generate Visual Studio project files" to regenerate the .vcxproj (excluded from the repo due to its 59MB size)
+3. Open TVMod/IcarusTVMod.uproject in the Icarus Mod Editor
+4. The C++ stubs compile automatically on editor launch
 4. All Blueprint and content assets are in Content/Mods/TV/
 
 ### 3. Building the Pak
