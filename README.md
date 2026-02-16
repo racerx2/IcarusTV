@@ -31,6 +31,8 @@ The relay server runs alongside the game on your PC. It transcodes any video sou
 
 ## Repository Structure
 
+> **Looking for the editable design assets?** They're in `TVMod/IcarusTVMod/Content/` — these are the raw, uncooked .uasset files you can open directly in the Icarus Mod Editor. The `BuildTools/PakContent/` directory contains the **cooked** output (.uasset + .uexp pairs) used for pak building — those are generated binaries, not the source content.
+
 ```
 IcarusTV/
 |-- README.md                            This file
@@ -38,11 +40,12 @@ IcarusTV/
 |-- TV_Mod_P.pak                         Pre-built pak (drop into mods folder)
 |-- IcarusRelayServer/
 |   |-- icarus_relay.py                  Streaming relay server (Python/Tkinter)
+|   |-- START_RELAY.bat                  Launcher with auto dependency setup
 |   |-- .gitignore                       Excludes credentials and ffmpeg binary
-|   +-- ffmpeg/                          Place ffmpeg.exe here (not included)
-|-- TVMod/                               Raw UE4 mod editor project
+|   +-- ffmpeg/                          Auto-downloaded on first run
+|-- TVMod/                               UE4 mod editor project (SOURCE CONTENT)
 |   |-- IcarusTVMod.uproject
-|   |-- Source/
+|   |-- Source/                          C++ stubs (preserve FNames on cook)
 |   |   |-- IcarusTVMod.Target.cs
 |   |   |-- IcarusTVModEditor.Target.cs
 |   |   +-- IcarusTVMod/
@@ -53,10 +56,10 @@ IcarusTV/
 |   |       |   +-- IcarusTVMod.h            Module header
 |   |       +-- Private/
 |   |           +-- IcarusTVMod.cpp          Module implementation
-|   +-- Content/
+|   +-- Content/                         UNCOOKED DESIGN ASSETS (open in editor)
 |       |-- Mods/TV/
 |       |   |-- Blueprints/BP_TV             Main TV blueprint
-|       |   |-- Materials/                   Body, screen, off-state materials
+|       |   |-- Materials/                   Body, screen, off-state, render target
 |       |   |-- Meshes/                      Frame and screen static meshes
 |       |   |-- Textures/                    Crafting icon (T_ITEM_TV)
 |       |   |-- MP_TVStream                  MediaPlayer asset
@@ -66,12 +69,22 @@ IcarusTV/
 |           +-- BP_SecondaryWidgetInterface   Blueprint Interface stub
 |-- BuildTools/
 |   |-- build_deploy.ps1                 Automated cook -> fix -> pak -> deploy
+|   |-- PakContent/                      COOKED OUTPUT (generated, not source)
 |   +-- BytecodeMod/
 |       |-- Program.cs                   Super reference fix tool (C#)
 |       +-- BytecodeMod.csproj           .NET 8 project file
 +-- DataTables/
     +-- TV_DataTables.md                 All server-side JSON entries documented
 ```
+
+### Uncooked vs Cooked Assets
+
+| Location | Type | Purpose |
+|----------|------|---------|
+| `TVMod/IcarusTVMod/Content/` | **Uncooked** (.uasset only) | Editable source — open in Icarus Mod Editor |
+| `BuildTools/PakContent/` | **Cooked** (.uasset + .uexp) | Generated output — built by UE4's cook process |
+
+Uncooked assets are the "source code" of the mod. They contain the full Blueprint graphs, material node trees, and widget layouts in an editable format. Cooked assets are stripped-down binaries optimized for runtime — they cannot be meaningfully edited. The build pipeline cooks from `TVMod/` and outputs to `BuildTools/PakContent/`.
 
 ---
 
